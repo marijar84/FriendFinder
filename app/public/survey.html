@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Survey Question</h1>
+        <h2>About you</h2>
+        <br/>
+        <h2>Name (Required)</h2>
+        <input type="text" id="name" class="form-control" required="">
+        <br/>
+        <h2>Link to Photo Image (Required)</h2>
+        <input type="text" id="link" class="form-control" required="">
+        <br/>
+        <br/>
+        <h3>
+            <strong>Question 1</strong>
+        </h3>
+        <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+        <select data-placeholder="" class="browser-default" id="question1">
+            <option value="">Select an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br/>
+        <h3>
+            <strong>Question 2</strong>
+        </h3>
+        <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+        <select data-placeholder="" class="browser-default" id="question2">
+            <option value="">Select an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br/>
+        <h3>
+            <strong>Question 3</strong>
+        </h3>
+        <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+        <select data-placeholder="" class="browser-default" id="question3">
+            <option value="">Select an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br/>
+        <h3>
+            <strong>Question 4</strong>
+        </h3>
+        <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+        <select data-placeholder="" class="browser-default" id="question4">
+            <option value="">Select an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br/>
+        <h3>
+            <strong>Question 5</strong>
+        </h3>
+        <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+        <select data-placeholder="" class="browser-default" id="question5">
+            <option value="">Select an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br/>
+        <br/>
+        <br/>
+        <button type="submit" data-target="modal1" class="waves-effect waves-light btn modal-trigger cyan lighten-1" id="submit">Submit</button>
+    </div>
+    <script type="text/javascript">
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+
+            alert($("#question1").val());
+
+            var surveyResult = {
+                name: $("#name").val().trim(),
+                link: $("#link").val().trim(),
+                "scores": [
+                    $("#question1").val(),
+                    $("#question2").val(),
+                    $("#question3").val(),
+                    $("#question4").val(),
+                    $("#question5").val()
+                ]
+            };
+
+            console.log(surveyResult);
+
+            // Question: What does this code do??
+            $.post("/api/friends", surveyResult)
+                .then(function (data) {
+                    console.log(data);
+                    alert("Adding character...");
+                });
+
+
+        });
+    </script>
+</body>
+
+</html>
