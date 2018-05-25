@@ -32,6 +32,22 @@ var tableArray = [
             "3",
             "2"
         ]
+    },
+    {
+        "name": "Mary",
+        "photo": "http://www.weblab24.it/wp-content/uploads/2017/05/buyer-persona-image3.png",
+        "scores": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+        ]
     }
   ];
 
